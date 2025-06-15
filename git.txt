@@ -1,0 +1,74 @@
+git is a distributed version control system which means it can track your code on your system and cloud (using GitHub
+
+
+ git status ---> shows the status
+ git add file_name --> adds the file changes to staging areas
+ git commit -m 'message' --> commits the changes locally
+ git push --> commit changes in cloud (github)
+
+
+ git revert d2a575fe7b61120f9b9ff448e6a237cb6b6bd6fc (reverts and commits changes same time)
+ 
+ or
+
+ git revert -n d2a575fe7b61120f9b9ff448e6a237cb6b6bd6fc (only reverts not committing)
+ git commit -m 'message'
+ 
+ 
+ git reset --hard 3a10e08ab3579289c9f811bbad45b0c5226f14d4
+reset to a commit or version you made before
+ 
+ 
+ git branch --> list all branches
+ 
+ git branch thirsty --> creates a branch named thirsty
+ 
+ git checkout thirsty ---> switch to thirsty branch
+ 
+ 
+Merge to branches
+-----------------
+
+1. first go the base branch that is 'main' (git checkout main)
+2. git merge thirsty (this says that merge thirsty branch to active branch (active branch is main now))
+
+
+to push thirsty branch to github
+git checkout thirsty  ---> git push thirsty
+or
+git push --set-upstream origin thirsty
+
+
+to delete a branch ----> git branch -d branch_name
+
+
+HEAD
+----
+
+HEAD is a reference to the most recent commit in current branch (in most of the cases)
+
+git show HEAD ---> shows the most recent commit of currnet branch
+
+if you change the branch by checkout, the head will reference to the recent commit of that branch
+
+
+if you want to see any two commits codes side by side using difftool
+
+git difftool older_commit_id new_commit_id
+
+or 
+
+git difftool HEAD~1 HEAD~2
+
+if you want to see difftool with origin (what is in github) and main
+
+git difftool origin/main
+
+git difftool head ----> this will show the difference between head and uncommited change (in staging area)
+
+
+
+# When head doesn't point to most recent commit, you go into "detached HEAD" state
+
+git checkout commit_id ----> this will result in detached HEAD state
+
